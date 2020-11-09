@@ -1,0 +1,46 @@
+{
+  "name": "vocolboy/laravel-vietnamese-convert",
+  "description": "Convert vietnamese to english",
+  "keywords": [
+    "laravel",
+    "vietnamese",
+    "english",
+    "convert",
+    "translate"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "vocolboy",
+      "email": "vocolboy@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "illuminate/support": "^7.0|^8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0|^9.0",
+    "orchestra/testbench": "^6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vocolboy\\VietnameseConvert\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Vocolboy\\VietnameseConvert\\Test\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Vocolboy\\VietnameseConvert\\VietnameseConvertServiceProvider"
+      ]
+    }
+  }
+}

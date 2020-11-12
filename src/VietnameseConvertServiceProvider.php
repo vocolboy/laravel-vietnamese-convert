@@ -20,16 +20,16 @@ class VietnameseConvertServiceProvider extends ServiceProvider
     private function registerMacroHelpers()
     {
         Str::macro(
-            'convertVietnameseToEnglish',
+            'convertVnToEn',
             function ($string) {
-                return convert_vietnamese_to_english($string);
+                return convert_vn_to_en($string);
             }
         );
 
         Stringable::macro(
-            'convertVietnameseToEnglish',
+            'convertVnToEn',
             function () {
-                return new static(Str::convertVietnameseToEnglish($this->value));
+                return new static(Str::convertVnToEn($this->value));
             }
         );
     }

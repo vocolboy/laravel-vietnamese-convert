@@ -1,7 +1,7 @@
 <?php
 
-if (! function_exists('convert_vietnamese_to_english')) {
-    function convert_vietnamese_to_english($str)
+if (! function_exists('convert_vn_to_en')) {
+    function convert_vn_to_en($str)
     {
         //https://art-hanoi.com/vncode/
         $comparisonTable = [

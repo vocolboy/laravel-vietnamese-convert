@@ -27,7 +27,7 @@ class VietnameseConvertTest extends TestCase
      */
     public function testConvertToEnglish($vietnamese, $english)
     {
-        $this->assertEquals(convert_vietnamese_to_english($vietnamese), $english);
+        $this->assertEquals(convert_vn_to_en($vietnamese), $english);
     }
 
     /**
@@ -37,7 +37,7 @@ class VietnameseConvertTest extends TestCase
      */
     public function testStrMacroIsWorking($vietnamese, $english)
     {
-        $this->assertEquals(Str::convertVietnameseToEnglish($vietnamese), $english);
+        $this->assertEquals(Str::convertVnToEn($vietnamese), $english);
     }
 
     /**
@@ -47,7 +47,7 @@ class VietnameseConvertTest extends TestCase
      */
     public function testStringableMacroIsWorking($vietnamese, $english)
     {
-        $this->assertEquals(Str::of($vietnamese)->convertVietnameseToEnglish(), $english);
+        $this->assertEquals(Str::of($vietnamese)->convertVnToEn(), $english);
     }
 
     public function vietnameseConvertDataProvider(): array

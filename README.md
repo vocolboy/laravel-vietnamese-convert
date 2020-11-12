@@ -11,11 +11,11 @@ composer require vocolboy/laravel-vietnamese-convert
 ```php
 use \Illuminate\Support\Str;
 
-Str::of('ĐẶNG QUỐC HUY')->convertVietnameseToEnglish(); 
+Str::of('ĐẶNG QUỐC HUY')->convertVnToEn(); 
 
-Str::convertVietnameseToEnglish('ĐẶNG QUỐC HUY');
+Str::convertVnToEn('ĐẶNG QUỐC HUY');
 
-convert_vietnamese_to_english('ĐẶNG QUỐC HUY');
+convert_vn_to_en('ĐẶNG QUỐC HUY');
 
 //DANG QUOC HUY
 ```

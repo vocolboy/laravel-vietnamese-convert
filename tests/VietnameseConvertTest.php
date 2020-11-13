@@ -38,6 +38,9 @@ class VietnameseConvertTest extends TestCase
     public function testStrMacroIsWorking($vietnamese, $english)
     {
         $this->assertEquals(Str::convertVnToEn($vietnamese), $english);
+
+        $this->assertEquals(Str::convertVnToEn(mb_convert_case($vietnamese, MB_CASE_UPPER)), strtoupper($english));
+        $this->assertEquals(Str::convertVnToEn(mb_convert_case($vietnamese, MB_CASE_LOWER)), strtolower($english));
     }
 
     /**
@@ -48,6 +51,8 @@ class VietnameseConvertTest extends TestCase
     public function testStringableMacroIsWorking($vietnamese, $english)
     {
         $this->assertEquals(Str::of($vietnamese)->convertVnToEn(), $english);
+        $this->assertEquals(Str::of($vietnamese)->upper()->convertVnToEn(), strtoupper($english));
+        $this->assertEquals(Str::of($vietnamese)->lower()->convertVnToEn(), strtolower($english));
     }
 
     public function vietnameseConvertDataProvider(): array
@@ -71,7 +76,11 @@ class VietnameseConvertTest extends TestCase
             ],
             [
                 'NGUYỄN ĐÌNH THỌ',
-                'NGUYEN DINH THO'
+                'NGUYEN DINH THO',
+            ],
+            [
+                'Đào Quốc Tuấn',
+                'Dao Quoc Tuan'
             ]
         ];
     }

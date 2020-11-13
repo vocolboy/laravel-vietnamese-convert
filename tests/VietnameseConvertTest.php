@@ -69,6 +69,10 @@ class VietnameseConvertTest extends TestCase
                 'Cảnh biển vào buổi sáng',
                 'Canh bien vao buoi sang',
             ],
+            [
+                'NGUYỄN ĐÌNH THỌ',
+                'NGUYEN DINH THO'
+            ]
         ];
     }
 }

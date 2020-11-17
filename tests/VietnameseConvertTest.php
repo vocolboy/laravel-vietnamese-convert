@@ -81,6 +81,10 @@ class VietnameseConvertTest extends TestCase
             [
                 'Đào Quốc Tuấn',
                 'Dao Quoc Tuan'
+            ],
+            [
+                'Võ sỹ quế',
+                'Vo sy que'
             ]
         ];
     }

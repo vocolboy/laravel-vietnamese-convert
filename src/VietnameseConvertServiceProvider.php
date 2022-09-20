@@ -22,7 +22,7 @@ class VietnameseConvertServiceProvider extends ServiceProvider
         Str::macro(
             'convertVnToEn',
             function ($string) {
-                return convert_vn_to_en($string);
+                return VietnameseCovert::toEn($string);
             }
         );
 

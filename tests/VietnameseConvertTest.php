@@ -5,6 +5,7 @@ namespace Vocolboy\VietnameseConvert\Test;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase;
 use Vocolboy\VietnameseConvert\VietnameseConvertServiceProvider;
+use Vocolboy\VietnameseConvert\VietnameseCovert;
 
 class VietnameseConvertTest extends TestCase
 {
@@ -93,6 +94,18 @@ class VietnameseConvertTest extends TestCase
             [
                 'Vọ',
                 'Vo'
+            ],
+            [
+                'Lê văn hoàng',
+                'Le van hoang'
+            ],
+            [
+                'nguyễn quốc toàn',
+                'nguyen quoc toan'
+            ],
+            [
+                'Vũ Văn Đước',
+                'Vu Van Duoc'
             ]
         ];
     }

@@ -153,7 +153,7 @@ class VietnameseCovert
         '20AB' => '$',//₫
     ];
 
-    public static function toEn(string $string): string
+    public static function toEn(?string $string = ''): string
     {
         $result = '';
         //remove diacritic

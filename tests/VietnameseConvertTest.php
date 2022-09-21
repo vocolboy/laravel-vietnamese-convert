@@ -5,16 +5,10 @@ namespace Vocolboy\VietnameseConvert\Test;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase;
 use Vocolboy\VietnameseConvert\VietnameseConvertServiceProvider;
-use Vocolboy\VietnameseConvert\VietnameseCovert;
 
 class VietnameseConvertTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
-
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             VietnameseConvertServiceProvider::class,
@@ -28,7 +22,7 @@ class VietnameseConvertTest extends TestCase
      */
     public function testConvertToEnglish($vietnamese, $english)
     {
-        $this->assertEquals(convert_vn_to_en($vietnamese), $english);
+        $this->assertEquals($english, convert_vn_to_en($vietnamese));
     }
 
     /**
@@ -38,10 +32,10 @@ class VietnameseConvertTest extends TestCase
      */
     public function testStrMacroIsWorking($vietnamese, $english)
     {
-        $this->assertEquals(Str::convertVnToEn($vietnamese), $english);
+        $this->assertEquals($english, Str::convertVnToEn($vietnamese));
 
-        $this->assertEquals(Str::convertVnToEn(mb_convert_case($vietnamese, MB_CASE_UPPER)), strtoupper($english));
-        $this->assertEquals(Str::convertVnToEn(mb_convert_case($vietnamese, MB_CASE_LOWER)), strtolower($english));
+        $this->assertEquals(strtoupper($english), Str::convertVnToEn(mb_convert_case($vietnamese, MB_CASE_UPPER)));
+        $this->assertEquals(strtolower($english), Str::convertVnToEn(mb_convert_case($vietnamese, MB_CASE_LOWER)));
     }
 
     /**
@@ -51,9 +45,16 @@ class VietnameseConvertTest extends TestCase
      */
     public function testStringableMacroIsWorking($vietnamese, $english)
     {
-        $this->assertEquals(Str::of($vietnamese)->convertVnToEn(), $english);
-        $this->assertEquals(Str::of($vietnamese)->upper()->convertVnToEn(), strtoupper($english));
-        $this->assertEquals(Str::of($vietnamese)->lower()->convertVnToEn(), strtolower($english));
+        $this->assertEquals($english, Str::of($vietnamese)->convertVnToEn());
+        $this->assertEquals(strtoupper($english), Str::of($vietnamese)->upper()->convertVnToEn());
+        $this->assertEquals(strtolower($english), Str::of($vietnamese)->lower()->convertVnToEn());
+    }
+
+    public function testNullShouldWork()
+    {
+        $this->assertEquals('', Str::of(null)->convertVnToEn());
+        $this->assertEquals('', Str::convertVnToEn(null));
+        $this->assertEquals('', convert_vn_to_en(null));
     }
 
     public function vietnameseConvertDataProvider(): array

@@ -107,6 +107,10 @@ class VietnameseConvertTest extends TestCase
             [
                 'Vũ Văn Đước',
                 'Vu Van Duoc'
+            ],
+            [
+                'Lê phan hòa hiệp',
+                'Le phan hoa hiep'
             ]
         ];
     }

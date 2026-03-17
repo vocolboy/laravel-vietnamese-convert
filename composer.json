@@ -23,6 +23,11 @@
     "phpunit/phpunit": "^8.0|^9.0",
     "orchestra/testbench": "^6.4"
   },
+  "config": {
+    "audit": {
+      "block-insecure": false
+    }
+  },
   "autoload": {
     "psr-4": {
       "Vocolboy\\VietnameseConvert\\": "src/"

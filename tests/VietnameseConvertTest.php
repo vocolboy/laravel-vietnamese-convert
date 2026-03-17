@@ -111,6 +111,14 @@ class VietnameseConvertTest extends TestCase
             [
                 'Lê phan hòa hiệp',
                 'Le phan hoa hiep'
+            ],
+            [
+                'Trần Anh Quốc',
+                'Tran Anh Quoc'
+            ],
+            [
+                'Phan Quốc Tuấn',
+                'Phan Quoc Tuan'
             ]
         ];
     }

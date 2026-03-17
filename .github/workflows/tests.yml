@@ -1,0 +1,42 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: "8.0"
+            laravel: "8.x"
+            testbench: "^6.0"
+
+    name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer:v2
+          extensions: mbstring
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Pin Laravel testbench for matrix target
+        run: composer require --dev --no-interaction --no-update "orchestra/testbench:${{ matrix.testbench }}"
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Run test suite
+        run: vendor/bin/phpunit
